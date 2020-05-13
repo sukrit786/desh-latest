@@ -1323,9 +1323,10 @@
                     <div class="form-group" *ngIf="combined.scaleeligible=='yes'">
                         <div class="form-group row ml-4">
                             <div class="col-md-7">
+                                <label>Attempted to see the patient but could not see because</label>
                                 <select class="form-control aq" id="exii" name="scaleeligiblereason" #scaleeligiblereason="ngModel"
                                     [(ngModel)]="combined.scaleeligiblereason" required>
-                                    <option hidden value="" disabled selected> Attempted to see the patient but could not see because </option>
+                                    <!-- <option hidden value="" disabled selected> Attempted to see the patient but could not see because </option> -->
                                     <option *ngFor="let spike of scaleeligible_reasons" [value]="spike">{{spike}}</option>
                                 </select>
                                 <p *ngIf="scaleeligiblereason.touched && scaleeligiblereason.invalid">Reason is required</p>
@@ -1342,17 +1343,22 @@
                         <div class="row ml-4">
                             <label class="col-md-4 qw" for="wsd">List of Scales : </label>
                         </div>
-                        <div class="row ml-4">
-                            <div class="col-md-9 ml-4" *ngFor="let i of scales;let im=index">
+                        <!-- <div class="row">
+                            <div class="col-md-9" *ngFor="let i of scales;let im=index">
                                 <div class="row">
                                     <div class="col-md-3 ml-4" *ngIf="i=='Depression' || i=='Cognitive impairment' || i=='Trauma'
                                     || i=='Anxiety' || i=='PTSD' || i=='Bipolar diagnostic' || i=='Dementia with behaviors' ||
                                     i=='Dementia testing' || i=='Insomnia' || i=='Suicidal assessment' || i=='Schizophrenia'
-                                    || i=='Substance use' || i=='Misc'; else kk">
+                                    || i=='Substance use' || i=='Misc'">
                                         <h5>{{i}}</h5>
                                     </div>
-                                    <ng-template #kk>
-                                    <div class="col-md-3 ml-4">
+                                </div>
+                                <div class="row">
+                                    <div *ngIf="i!='Depression' || i!='Cognitive impairment' || i!='Trauma'
+                                    || i!='Anxiety' || i!='PTSD' || i!='Bipolar diagnostic' || i!='Dementia with behaviors' ||
+                                    i!='Dementia testing' || i!='Insomnia' || i!='Suicidal assessment' || i!='Schizophrenia'
+                                    || i!='Substance use' || i!='Misc'">
+                                    <div class="col-md-3">
                                         <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
                                             id="{{im+100}}">
                                         <label for="scale" class="form-check-label" id="{{im+100}}">{{i}}</label>
@@ -1365,11 +1371,47 @@
                                         <input type="number" min="0" max="50" placeholder="Enter score"
                                             name="scale_score" id="{{im+100}}" class="form-control scale_score aq">
                                     </div>
-                                </ng-template>
                                 </div>
+                                </div>
+                                </div>
+                            </div> -->
+                    <div class="form-group" *ngIf="combined.scaleeligible=='yes'">
+                        <div class="row ml-4">
+                            <div class="col-md-10 ml-4" *ngFor="let i of scales;let im=index">
+                                <div class="row" *ngIf="i=='Depression' || i=='Cognitive impairment' || i=='Trauma'
+                                || i=='Anxiety' || i=='PTSD' || i=='Bipolar diagnostic' || i=='Dementia with behaviors' ||
+                                i=='Dementia testing' || i=='Insomnia' || i=='Suicidal assessment' || i=='Schizophrenia'
+                                || i=='Substance use' || i=='Misc'; else kk">
+                                    <h3>{{i}}</h3>
+                                    <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
+                                    id="{{im+100}}" hidden >
+                                    <label for="scale" class="form-check-label" id="{{im+100}}"></label>
+                                    <input type="date" name="scale_date" id="{{im+100}}"
+                                    class="form-control scale_date" value="0" hidden>
+                                    <input type="number" min="0" max="50" placeholder="Enter scale score"
+                                     name="scale_score" id="{{im+100}}" class="form-control scale_score" value="0" hidden>
+                                </div>
+                                <ng-template #kk>
+                                <div class="row">
+                                    <div class="col-md-3 ml-4">
+                                        <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
+                                            id="{{im+100}}">
+                                        <label for="scale" class="form-check-label" id="{{im+100}}">{{i}}</label>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <input type="date" name="scale_date" id="{{im+100}}"
+                                            class="form-control scale_date">
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <input type="number" min="0" max="50" placeholder="Enter scale score"
+                                            name="scale_score" id="{{im+100}}" class="form-control scale_score">
+                                    </div>
+                                </div>
+                            </ng-template>
                             </div>
                         </div>
                     </div>
+                        </div>
 
                     <h3 style="color: #87c442;"> <b> Consultation </b></h3>
                     <div class="form-row mt-4">

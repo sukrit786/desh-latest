@@ -176,7 +176,7 @@ export class CombinepatComponent implements OnInit {
   psy_reasons = ['Patient does not need it clinically', 'Patient/POA refused', 'Patient is unable to participate because of severe cognitive disorder', 'Patient is unable to participate because of severe speech disorder', 'PCP removed consultation order', 'Other']
   no_see_doc_reasons = ['Patient was not in the facility', 'Patient could not participate in the interview', 'Patient refused to participate in the interview','I met the target points for the day', 'Other']
   followup_type = ['Per routine protocol','Urgent','Very Urgent','Date Specific']
-  scaleeligible_reasons = ['Patient was not in the Facility','Patient could not particpate in the interview','Patient refused to particpate in the interview','I met the target points for the day','Other']
+  scaleeligible_reasons = ['Patient was not in the Facility','Patient could not particpate in the interview','Patient refused to particpate in the interview','I met the target points for the day','Patient not available','Other']
   sptime = ['Upto 30 min','Upto 45 min','Upto 1 Hr','More then 1 Hr'] 
   // reset_limited() {
   //   this.combined

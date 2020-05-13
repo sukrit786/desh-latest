@@ -359,8 +359,9 @@ export class DataTransferService {
   findprerecords(data) {
     //this is the data i get
     console.log(data);
-    return this.http.post<any>(this.url19,data).subscribe(res=>{
-      console.log(res)
-    })
+    return this.http.post<any>(this.url19,data);
+    // return this.http.post<any>(this.url19,data).subscribe(res=>{
+    //   console.log(res)
+    // })
   }
 }

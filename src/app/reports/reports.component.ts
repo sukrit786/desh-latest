@@ -40,6 +40,7 @@ export class ReportsComponent implements OnInit {
   patients: any;
   providers:Provider;
   facilities:Facility;
+  output:any;
   logout() {
     this.service.logout();
   }
@@ -79,12 +80,18 @@ export class ReportsComponent implements OnInit {
     provider:string,
     date:string
   }
+  gammma = false;
   submit(form) {
     // console.log(form.value);
-    this.service.findprerecords(form.value)
+    this.service.findprerecords(form.value).subscribe(res =>{
+      // console.log(res);
+      this.output = res;
+      this.gammma =true;
+      console.log(this.output);
+    })
     this.resetform();
   }
-  gammma = false;
+  
   ap() {
     this.service.topatient('yes');
   }
