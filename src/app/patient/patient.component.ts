@@ -185,13 +185,13 @@ export class PatientComponent implements OnInit {
   submit(form: NgForm) {
     this.service.sendBaseData(form.value);
     this.resetStuff();
+    this.toastr.success('', 'Patient Added Successfully');
     $("#myModal").modal("hide");
   }
   patients;
   searchDate;
   app() {
     setTimeout(() => {
-      console.log("please call me");
       $("#myModal").modal("show");
     }, 100)
   }

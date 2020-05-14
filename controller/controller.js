@@ -621,6 +621,7 @@ router.post('/preround', verifyToken, (req, res) => {
                                         v_t.push("Psycothreapy")
                                     }
                                     let data_partial = {
+                                        id: pat._id,
                                         name: pat.name,
                                         dob: pat.dob,
                                         room: x.room,
@@ -631,7 +632,8 @@ router.post('/preround', verifyToken, (req, res) => {
                                         pending_scales: p_s,
                                         scale_overdue: s_d
                                     }
-                                    console.log(data_partial);
+                                    console.log(id +"fd"+ pat._id);
+                                    console.log(data_partial+"kunal");
                                     preroundupdata.push(data_partial);
                                 }
                             }

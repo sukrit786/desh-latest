@@ -1,10 +1,12 @@
 import { Component, OnInit, TemplateRef, ElementRef } from '@angular/core';
 import { combined, DataTransferService } from '../shared/data-transfer.service';
 import { NgForm } from '@angular/forms';
+import { Router} from '@angular/router';
 import { of, from } from 'rxjs';
 import { map, first, filter } from 'rxjs/operators'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 declare var $: any
 @Component({
@@ -14,7 +16,8 @@ declare var $: any
 })
 export class CombinepatComponent implements OnInit {
   modalRef: BsModalRef;
-  constructor(public service: DataTransferService, private modalService: BsModalService, public el: ElementRef) { }
+  constructor(public service: DataTransferService, private modalService: BsModalService, public el: ElementRef,
+     public toastr: ToastrService , public router: Router) { }
 
   combined: combined;
   providers: any;
@@ -353,6 +356,8 @@ export class CombinepatComponent implements OnInit {
 
     let masterptdata = { ...meds, ...med_syms, ...psy_psyms, ...scaleinfo, ...form.value }
     this.service.submitMasterPatientData(masterptdata);
+    this.toastr.success('', 'Patient Record Updated Successfully');
+    this.router.navigate(['/patient']);
     // this.resetForm();
   }
   app() {

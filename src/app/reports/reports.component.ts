@@ -80,15 +80,22 @@ export class ReportsComponent implements OnInit {
     provider:string,
     date:string
   }
+  showit = true;
   gammma = false;
+  fn;
+  pn;
+  dd;
   submit(form) {
     // console.log(form.value);
     this.service.findprerecords(form.value).subscribe(res =>{
-      // console.log(res);
       this.output = res;
       this.gammma =true;
+      this.showit = false;
       console.log(this.output);
     })
+    this.fn = this.repo.facility;
+    this.pn = this.repo.provider;
+    this.dd = this.repo.date;
     this.resetform();
   }
   
