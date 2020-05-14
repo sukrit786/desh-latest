@@ -138,7 +138,6 @@
                     <table class="table table-stripped table-hover table-condensed mt-4" #table>
                         <thead >
                             <tr>
-                                <th>ID</th>
                                 <th>Patient's Room</th>
                                 <th>Patient's Name</th>
                                 <th>Patient's Insurance</th>
@@ -150,11 +149,10 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let i of output">
-                                <td>{{i._id}}</td>
                                 <td>{{i.room}}</td>
                                 <td>{{i.name}}<p [routerLink]="['/cpat']"><i class="fa fa-pencil" aria-hidden="true"
-                                    style="color: #87c442;" (click)="service.useriden(i._id)"
-                                   tooltip="Update Patient record" placement="right"></i></p></td>
+                                    style="color: #87c442;" (click)="service.useriden(i.id)"
+                                   tooltip="Update Patient record" data-dismiss="modal" placement="right"></i></p></td>
                                 <td>{{i.insurance}}</td>
                                 <td>{{i.services_eligible}}</td>
                                 <td>{{i.visit_type}}</td>

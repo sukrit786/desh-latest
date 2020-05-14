@@ -632,8 +632,7 @@ router.post('/preround', verifyToken, (req, res) => {
                                         pending_scales: p_s,
                                         scale_overdue: s_d
                                     }
-                                    console.log(id +"fd"+ pat._id);
-                                    console.log(data_partial+"kunal");
+                                    console.log(data_partial);
                                     preroundupdata.push(data_partial);
                                 }
                             }
