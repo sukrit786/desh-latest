@@ -6,7 +6,7 @@ let facilitySchema = new mongoose.Schema({
     capacity: { type: String },
     address1: { type: String },
     sn: { type: String },
-    address2: { type: Number },
+    address2: { type: String },
     tof: { type: String },
     city:String,
     state:String

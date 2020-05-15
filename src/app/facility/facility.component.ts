@@ -72,7 +72,7 @@ export class FacilityComponent implements OnInit {
       address: '',
       capacity: '',
       address1: '',
-      address2: null,
+      address2: '',
       tof: 'nh',
       sn: '',
       city:"",

@@ -139,12 +139,14 @@
 
                         <div class="form-group row ml-4" *ngIf="combined.medication=='no'">
                             <div class="col-md-7">
+                                <label>Discontinued due to Reason</label>
                                 <select class="form-control aq" id="exii" name="medreason" #medreason="ngModel"
-                                    [(ngModel)]="combined.medreason" required>
-                                    <option hidden value="" disabled selected> Discontinued due to </option>
-                                    <option *ngFor="let spike of med_reasons" [value]="spike">{{spike}}</option>
+                                    [(ngModel)]="combined.medreason">
+                                    <!--  change1 -->
+                                    <option hidden value="" disabled selected> Not Applicable </option>
+                                    <option *ngFor="let spike of med_reasons" [value]="spike" >{{spike}}</option>
                                 </select>
-                                <p *ngIf="medreason.touched && medreason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="medreason.touched && medreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.medreason=='Other'">
                                 <input type="text" class="form-control aq" name="othermedreason" #othermedreason="ngModel"
@@ -245,12 +247,14 @@
                     </div>
                     <div class="form-group row ml-4" *ngIf="combined.generictest=='no'">
                         <div class="col-md-7">
+                            <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="geneticreason" #geneticreason="ngModel"
-                                [(ngModel)]="combined.geneticreason" required>
-                                <option hidden value="" disabled selected> Discontinued due to </option>
+                                [(ngModel)]="combined.geneticreason">
+                                <!-- change2 -->
+                                <option hidden value=""  selected> Not Applicable</option>
                                 <option *ngFor="let spike of genatic_reasons" [value]="spike">{{spike}}</option>
                             </select>
-                            <p *ngIf="geneticreason.touched && geneticreason.invalid">Field is required</p>
+                            <!-- <p *ngIf="geneticreason.touched && geneticreason.invalid">Field is required</p> -->
                         </div>
                         <div class="col-md-4 form-group" *ngIf="combined.geneticreason=='Other'">
                             <input type="text" class="form-control aq" name="othergeneticreason"
@@ -401,12 +405,14 @@
                     </div>
                     <div class="form-group row ml-4" *ngIf="combined.medmanage=='no'">
                         <div class="col-md-7">
+                            <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="medreason2" #medreason2="ngModel"
-                                [(ngModel)]="combined.medreason2" required>
-                                <option hidden value="" disabled selected> Discontinued due to </option>
+                                [(ngModel)]="combined.medreason2">
+                                <!-- change3 -->
+                                <option hidden value=""  selected> Not Applicable </option>
                                 <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                             </select>
-                            <p *ngIf="medreason2.touched && medreason2.invalid">Reason is required</p>
+                            <!-- <p *ngIf="medreason2.touched && medreason2.invalid">Reason is required</p> -->
                         </div>
                         <div class="col-md-4 form-group" *ngIf="combined.medreason2=='Other'">
                             <input type="text" class="form-control aq" name="othermedreason2" #othermedreason2="ngModel"
@@ -443,12 +449,14 @@
                     </div>
                     <div class="form-group row ml-4" *ngIf="combined.psythreapy=='no'">
                         <div class="col-md-7">
+                            <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="psyreason" #psyreason="ngModel"
-                                [(ngModel)]="combined.psyreason" required>
-                                <option hidden value="" disabled selected> Discontinued due to </option>
+                                [(ngModel)]="combined.psyreason" >
+                                <!-- change4 -->
+                                <option hidden value=""  selected>  Not Applicable </option>
                                 <option *ngFor="let spike of psy_reasons" [value]="spike">{{spike}}</option>
                             </select>
-                            <p *ngIf="psyreason.touched && psyreason.invalid">Reason is required</p>
+                            <!-- <p *ngIf="psyreason.touched && psyreason.invalid">Reason is required</p> -->
                         </div>
                         <div class="col-md-4 form-group" *ngIf="combined.psyreason=='Other'">
                             <input type="text" class="form-control aq" name="otherpsyreason" #otherpsyreason="ngModel"
@@ -483,12 +491,14 @@
                     </div>
                     <div class="form-group row ml-4" *ngIf="combined.psyscreen=='no'">
                         <div class="col-md-7">
+                            <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="psyscreenreason" #psyscreenreason="ngModel"
-                                [(ngModel)]="combined.psyscreenreason" required>
-                                <option hidden value="" disabled selected> Discontinued due to </option>
+                                [(ngModel)]="combined.psyscreenreason" >
+                                <!-- change5 -->
+                                <option hidden value=""  selected>  Not Applicable </option>
                                 <option *ngFor="let spike of psy_reasons" [value]="spike">{{spike}}</option>
                             </select>
-                            <p *ngIf="psyscreenreason.touched && psyscreenreason.invalid">Reason is required</p>
+                            <!-- <p *ngIf="psyscreenreason.touched && psyscreenreason.invalid">Reason is required</p> -->
                         </div>
                         <div class="col-md-4 form-group" *ngIf="combined.psyscreenreason=='Other'">
                             <input type="text" class="form-control aq" name="otherpsyscreenreason"
@@ -552,12 +562,14 @@
                         </div>
                         <div class="form-group row ml-4" *ngIf="combined.bhi=='no'">
                             <div class="col-md-7">
+                                <label>Discontinued due to</label>
                                 <select class="form-control aq" id="exii" name="bhireason" #bhireason="ngModel"
-                                    [(ngModel)]="combined.bhireason" required>
-                                    <option hidden value="" disabled selected> Discontinued due to </option>
+                                    [(ngModel)]="combined.bhireason" >
+                                    <!-- change6 -->
+                                    <option hidden value=""  selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
-                                <p *ngIf="bhireason.touched && bhireason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="bhireason.touched && bhireason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.bhireason=='Other'">
                                 <input type="text" class="form-control aq" name="otherbhireason" #otherbhireason="ngModel"
@@ -620,12 +632,14 @@
                         </div>
                         <div class="form-group row ml-4" *ngIf="combined.ccm=='no'">
                             <div class="col-md-7">
+                                <label>Discontinued due to </label>
                                 <select class="form-control aq" id="exii" name="ccmreason" #ccmreason="ngModel"
-                                    [(ngModel)]="combined.ccmreason" required>
-                                    <option hidden value="" disabled selected> Discontinued due to </option>
+                                    [(ngModel)]="combined.ccmreason" >
+                                    <!-- change7 -->
+                                    <option hidden value=""  selected>  Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
-                                <p *ngIf="ccmreason.touched && ccmreason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="ccmreason.touched && ccmreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.ccmreason=='Other'">
                                 <input type="text" class="form-control aq" name="otherccmreason" #otherccmreason="ngModel"
@@ -698,12 +712,14 @@
                         </div>
                         <div class="form-group row ml-4" *ngIf="combined.cch=='no'">
                             <div class="col-md-7">
+                                <label>Discontinued due to</label>
                                 <select class="form-control aq" id="exii" name="cchreason" #cchreason="ngModel"
-                                    [(ngModel)]="combined.cchreason" required>
-                                    <option hidden value="" disabled selected> Discontinued due to </option>
+                                    [(ngModel)]="combined.cchreason" >
+                                    <!-- change8 -->
+                                    <option hidden value=""  selected>  Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons3" [value]="spike">{{spike}}</option>
                                 </select>
-                                <p *ngIf="cchreason.touched && cchreason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="cchreason.touched && cchreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.cchreason=='Other'">
                                 <input type="text" class="form-control aq" name="othercchreason" #othercchreason="ngModel"
@@ -772,12 +788,14 @@
                         </div>
                         <div class="form-group row ml-4" *ngIf="combined.homeclinic=='no'">
                             <div class="col-md-7">
+                                <label>Discontinued due to</label>
                                 <select class="form-control aq" id="homeclinicreason" name="homeclinicreason"
-                                    #homeclinicreason="ngModel" [(ngModel)]="combined.homeclinicreason" required>
-                                    <option hidden value="" disabled selected> Discontinued due to </option>
+                                    #homeclinicreason="ngModel" [(ngModel)]="combined.homeclinicreason" >
+                                    <!-- change9 -->
+                                    <option hidden value=""  selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
-                                <p *ngIf="homeclinicreason.touched && homeclinicreason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="homeclinicreason.touched && homeclinicreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.homeclinicreason=='Other'">
                                 <input type="text" class="form-control aq" name="otherhomeclinicreason"
@@ -858,7 +876,7 @@
                             </div>
                         </div>
                     </div>
-                    <h5 style="color: #87c442;" class="mt-2"> <b> Type Of Visit </b></h5>
+                    <h5 style="color: #87c442;" class="mt-2"> <b> Type Of Visit </b><span>*</span></h5>
                     <div class="row ml-1 mt-4">
                         <div class="col-md-3 form-check custom-control custom-radio" *ngFor="let type of type_visits">
                             <div *ngIf="type=='Care coordination time spent'; else kk">
@@ -1326,10 +1344,10 @@
                                 <label>Attempted to see the patient but could not see because</label>
                                 <select class="form-control aq" id="exii" name="scaleeligiblereason" #scaleeligiblereason="ngModel"
                                     [(ngModel)]="combined.scaleeligiblereason" required>
-                                    <!-- <option hidden value="" disabled selected> Attempted to see the patient but could not see because </option> -->
+                                    <option hidden value="" disabled selected>  </option>
                                     <option *ngFor="let spike of scaleeligible_reasons" [value]="spike">{{spike}}</option>
                                 </select>
-                                <p *ngIf="scaleeligiblereason.touched && scaleeligiblereason.invalid">Reason is required</p>
+                                <!-- <p *ngIf="scaleeligiblereason.touched && scaleeligiblereason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.scaleeligiblereason=='Other'">
                                 <input type="text" class="form-control aq" name="otherscaleeligiblereason"
@@ -1580,6 +1598,9 @@
                         </div>
                             </div>
                     <br>
+                    <div *ngIf="form.invalid"> 
+                        <p>Fill all the fields With <span>*</span> </p>
+                    </div>
                     <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
                     <button type="reset" class="btn btn-primary ml-2" >Reset</button>
                 </form>

@@ -172,15 +172,16 @@ export class CombinepatComponent implements OnInit {
   unstable_syms = ['depression', 'anxiety', 'mania', 'psychosis', 'dementia progression and related behaviors', 'delirium and related behaviors', 'pseudobulbar affect']
   type_visits = ['Med-management follow up', 'Psycothreapy' ,'Case Management/Psychiatric screenings','Care coordination time spent']
   scales = ['Depression','PHQ9', 'GDS','BDI','Cognitive impairment', 'BIMS', 'MMSE','Trauma', 'BTQ', 'LEC-5','Anxiety','GAD','BAI', 'PTSD ','PCL','NSESSS','Bipolar diagnostic','BSDS','MDQ','Dementia with behaviors','BEHAVE-AD','RMBC','Dementia testing','MOCA','NPQ','Insomnia','ISQ','ISI','Suicidal assessment','CSSRS','BSS','Schizophrenia','PNASS','BPRS','Substance use','AUDIT','DAST','Faggerstorm','Misc','CNSLS','AIMS'];
-  med_reasons = ['Patient did not tolerate side effects', 'Patient did not benefit from it', 'Patient cannot afford it', 'Medicine interacts with other medicines', 'Other'];
-  genatic_reasons = ['Insurance does not cover it', 'Patient cannot afford copay', 'Patient/POA denied consent', 'Other'];
-  med_reasons2 = ['Patient does not need it clinically', 'Patient/POA refused', 'PCP removed the consultation order', 'Other']
-  med_reasons3 = ['Pt does not need it clinically','Pt/POA refused','POA is unable to support','Other'];
-  psy_reasons = ['Patient does not need it clinically', 'Patient/POA refused', 'Patient is unable to participate because of severe cognitive disorder', 'Patient is unable to participate because of severe speech disorder', 'PCP removed consultation order', 'Other']
+  med_reasons = ['Patient did not tolerate side effects', 'Patient did not benefit from it', 'Patient cannot afford it', 'Medicine interacts with other medicines', 'Other','Not Applicable'];
+  genatic_reasons = ['Insurance does not cover it', 'Patient cannot afford copay', 'Patient/POA denied consent', 'Other','Not Applicable'];
+  med_reasons2 = ['Patient does not need it clinically', 'Patient/POA refused', 'PCP removed the consultation order', 'Other','Not Applicable']
+  med_reasons3 = ['Pt does not need it clinically','Pt/POA refused','POA is unable to support','Other','Not Applicable'];
+  psy_reasons = ['Patient does not need it clinically', 'Patient/POA refused', 'Patient is unable to participate because of severe cognitive disorder', 'Patient is unable to participate because of severe speech disorder', 'PCP removed consultation order', 'Other','Not Applicable']
   no_see_doc_reasons = ['Patient was not in the facility', 'Patient could not participate in the interview', 'Patient refused to participate in the interview','I met the target points for the day', 'Other']
   followup_type = ['Per routine protocol','Urgent','Very Urgent','Date Specific']
   scaleeligible_reasons = ['Patient was not in the Facility','Patient could not particpate in the interview','Patient refused to particpate in the interview','I met the target points for the day','Patient not available','Other']
   sptime = ['Upto 30 min','Upto 45 min','Upto 1 Hr','More then 1 Hr'] 
+  // firstat : false;
   // reset_limited() {
   //   this.combined
   // }

@@ -14,7 +14,7 @@ declare var $: any
 export class ExpensiveComponent implements OnInit {
 
   constructor(public service: DataTransferService, public toastr: ToastrService) { }
-
+  
   fname = '';
   metaData = false;
   meds: Medication;
@@ -75,6 +75,9 @@ export class ExpensiveComponent implements OnInit {
   }
   submit(form: NgForm) {
     console.log(form.value);
+    Object.keys(form.controls).forEach(key => {
+      form.controls[key].markAsTouched();
+    });
     this.service.sendMed(form).subscribe(res => {
       console.log(res);
       this.toastr.success('', 'Medicine Saved Successfully');

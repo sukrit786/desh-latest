@@ -101,8 +101,7 @@
       <p style="text-align: end; margin-top:20px; cursor: pointer;" data-dismiss="modal"><i class="fa fa-times"
         aria-hidden="true"></i></p>
       <div class="modal-body">
-
-        <form #form="ngForm" (submit)="submit(form)">
+        <form #form="ngForm" (submit)="form.form.valid && submit(form)">
           <h4 class="ap">Add Provider</h4>
           <div class="row mt-4">
             <div class="col-md-12">
@@ -113,8 +112,8 @@
                 </div>
                 <div class="col-md-12 mt-1">
                   <input type="text" class="form-control ip" required id="name" name="name" #name="ngModel"
-                    [(ngModel)]="providerData.name">
-                    <div *ngIf="name.invalid && (name.dirty || name.touched)"    class="alert alert-danger mt-1">
+                    [(ngModel)]="providerData.name" [ngClass]="{ 'is-invalid': form.submitted && name.invalid }">
+                    <div *ngIf="name.invalid && form.submitted"    class="alert alert-danger mt-1">
                       <div *ngIf="name.errors.required">Name is required.</div>
                   </div>
                 </div>
@@ -124,10 +123,12 @@
                 <div class="col-md-12">
                   <div class="row mt-4">
                     <div class="b col-md-4" *ngFor="let i of insurances;let ii=index" #batch>
-                      <input type="checkbox" name="insurance" required id="{{ii+1}}" value="{{i.name}}" class="chkbx">
+                      <input type="checkbox" name="insurance" required id="{{ii+1}}" value="{{i.name}}" class="chkbx" 
+                      >
                       <label for="{{ii+1}}">&nbsp;{{i.name}}</label>
                     </div>
                   </div>
+                  
                 </div>
                 <div class="col-md-12 nj mt-4">
                   <span>Select Provider type from the list</span>
@@ -144,7 +145,7 @@
             </div>
           </div>
           <div class="das" style="text-align: center;">
-            <button type="submit" class="btn btn-custom bo" [disabled]="form.invalid">Add</button>
+            <button type="submit" class="btn btn-custom bo" >Add</button>
             <button type="button" class="btn btn-custom bo" data-dismiss="modal">Cancel</button>
           </div>
         </form>

@@ -159,8 +159,8 @@
                 <div class="col-md-6"> <input type="text" class="form-control ip" id="name" name="address1"
                     #address1="ngModel" [(ngModel)]="facilityData.address1" placeholder="Address Line 2"></div>
                 <div class="col-md-6">
-                  <input type="number" class="form-control ip" required id="name" name="address2" #address2="ngModel"
-                    [(ngModel)]="facilityData.address2" placeholder="Zip Code"></div>
+                  <input type="text" class="form-control ip"  required id="name" name="address2" #address2="ngModel"
+                    [(ngModel)]="facilityData.address2" size="4" placeholder="Zip Code"></div>
                 <div *ngIf="address2.invalid && (address2.dirty || address2.touched)" class="alert alert-danger mt-1">
                   <div *ngIf="address2.errors.required">Zip Code is required.</div>
                 </div>
