@@ -36,7 +36,6 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jspdf/dist/jspdf.min.js"
-              
             ]
           },
           "configurations": {
@@ -157,5 +156,8 @@
       }
     }
   },
-  "defaultProject": "desh"
+  "defaultProject": "desh",
+  "cli": {
+    "analytics": "c29e4ff2-dd82-4ba7-95b8-6e990a1f5476"
+  }
 }
