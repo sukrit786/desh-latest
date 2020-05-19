@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef, ElementRef } from '@angular/core';
 import { combined, DataTransferService } from '../shared/data-transfer.service';
 import { NgForm } from '@angular/forms';
-import { Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { of, from } from 'rxjs';
 import { map, first, filter } from 'rxjs/operators'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -17,7 +17,7 @@ declare var $: any
 export class CombinepatComponent implements OnInit {
   modalRef: BsModalRef;
   constructor(public service: DataTransferService, private modalService: BsModalService, public el: ElementRef,
-     public toastr: ToastrService , public router: Router) { }
+    public toastr: ToastrService, public router: Router) { }
 
   combined: combined;
   providers: any;
@@ -42,9 +42,10 @@ export class CombinepatComponent implements OnInit {
   masterobj;
   update = false;
   kdate: Date;
-  stringdate:string;
+  stringdate: string;
   cd: Date;
   kd;
+  default_scales = ['PHQ9','GDS',"BIMS","MMSE","BTQ",'LEC-5','GAD',"BAI"];
   ngOnInit() {
     this.kdate = new Date();
     this.cd = new Date();
@@ -59,12 +60,13 @@ export class CombinepatComponent implements OnInit {
       if (res.visit != undefined) {
         this.combined = res.visit;
         this.update = true;
+        console.log('########################################################################');
         setTimeout(() => {
           var x = this.el.nativeElement.querySelectorAll('.chkbx');
           var status = this.el.nativeElement.querySelectorAll('.medstatus');
           var date = this.el.nativeElement.querySelectorAll('.meddate');
           console.log(this.masterobj.visit.exmeds)
-          this.el.nativeElement.querySelector('#cid').value =  this.stringdate;
+          this.el.nativeElement.querySelector('#cid').value = this.stringdate;
           x.forEach((item, index) => {
             this.masterobj.visit.exmeds.forEach(med => {
               if (med.name == item.value) {
@@ -113,16 +115,23 @@ export class CombinepatComponent implements OnInit {
           });
         }, 500)
       }
-      else{
+      else {
         setTimeout(() => {
-          this.el.nativeElement.querySelector('#cid').value =  this.stringdate;
-        },500);
+          console.log("-----------------------------------------------------------------")
+          this.el.nativeElement.querySelector('#cid').value = this.stringdate;
+          this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(scale=>{
+            // if(this.default_scales.includes(scale)) {
+              console.log(scale);
+            // }
+          })
+        }, 500);
       }
       console.log(this.update)
       this.combined.name = res.name;
       this.combined.dob = res.dob;
+      this.combined.flag = res.flag;
       // this.el.nativeElement.getElementById('cid').value = this.stringdate;
-      
+
       // console.log(res.visit.exmeds)
       // this.reset_limited()
     });
@@ -170,26 +179,27 @@ export class CombinepatComponent implements OnInit {
     console.log(this.update)
   }
   unstable_syms = ['depression', 'anxiety', 'mania', 'psychosis', 'dementia progression and related behaviors', 'delirium and related behaviors', 'pseudobulbar affect']
-  type_visits = ['Med-management follow up', 'Psycothreapy' ,'Case Management/Psychiatric screenings','Care coordination time spent']
-  scales = ['Depression','PHQ9', 'GDS','BDI','Cognitive impairment', 'BIMS', 'MMSE','Trauma', 'BTQ', 'LEC-5','Anxiety','GAD','BAI', 'PTSD ','PCL','NSESSS','Bipolar diagnostic','BSDS','MDQ','Dementia with behaviors','BEHAVE-AD','RMBC','Dementia testing','MOCA','NPQ','Insomnia','ISQ','ISI','Suicidal assessment','CSSRS','BSS','Schizophrenia','PNASS','BPRS','Substance use','AUDIT','DAST','Faggerstorm','Misc','CNSLS','AIMS'];
-  med_reasons = ['Patient did not tolerate side effects', 'Patient did not benefit from it', 'Patient cannot afford it', 'Medicine interacts with other medicines', 'Other','Not Applicable'];
-  genatic_reasons = ['Insurance does not cover it', 'Patient cannot afford copay', 'Patient/POA denied consent', 'Other','Not Applicable'];
-  med_reasons2 = ['Patient does not need it clinically', 'Patient/POA refused', 'PCP removed the consultation order', 'Other','Not Applicable']
-  med_reasons3 = ['Pt does not need it clinically','Pt/POA refused','POA is unable to support','Other','Not Applicable'];
-  psy_reasons = ['Patient does not need it clinically', 'Patient/POA refused', 'Patient is unable to participate because of severe cognitive disorder', 'Patient is unable to participate because of severe speech disorder', 'PCP removed consultation order', 'Other','Not Applicable']
-  no_see_doc_reasons = ['Patient was not in the facility', 'Patient could not participate in the interview', 'Patient refused to participate in the interview','I met the target points for the day', 'Other']
-  followup_type = ['Per routine protocol','Urgent','Very Urgent','Date Specific']
-  scaleeligible_reasons = ['Patient was not in the Facility','Patient could not particpate in the interview','Patient refused to particpate in the interview','I met the target points for the day','Patient not available','Other']
-  sptime = ['Upto 30 min','Upto 45 min','Upto 1 Hr','More then 1 Hr'] 
+  type_visits = ['Med-management follow up', 'Psycothreapy', 'Case Management/Psychiatric screenings', 'Care coordination time spent']
+  scales = ['Depression', 'PHQ9', 'GDS', 'BDI', 'Cognitive impairment', 'BIMS', 'MMSE', 'Trauma', 'BTQ', 'LEC-5', 'Anxiety', 'GAD', 'BAI', 'PTSD ', 'PCL', 'NSESSS', 'Bipolar diagnostic', 'BSDS', 'MDQ', 'Dementia with behaviors', 'BEHAVE-AD', 'RMBC', 'Dementia testing', 'MOCA', 'NPQ', 'Insomnia', 'ISQ', 'ISI', 'Suicidal assessment', 'CSSRS', 'BSS', 'Schizophrenia', 'PNASS', 'BPRS', 'Substance use', 'AUDIT', 'DAST', 'Faggerstorm', 'Misc', 'CNSLS', 'AIMS'];
+  med_reasons = ['Patient did not tolerate side effects', 'Patient did not benefit from it', 'Patient cannot afford it', 'Medicine interacts with other medicines', 'Other', 'Not Applicable'];
+  genatic_reasons = ['Insurance does not cover it', 'Patient cannot afford copay', 'Patient/POA denied consent', 'Other', 'Not Applicable'];
+  med_reasons2 = ['Patient does not need it clinically', 'Patient/POA refused', 'PCP removed the consultation order', 'Other', 'Not Applicable']
+  med_reasons3 = ['Pt does not need it clinically', 'Pt/POA refused', 'POA is unable to support', 'Other', 'Not Applicable'];
+  psy_reasons = ['Patient does not need it clinically', 'Patient/POA refused', 'Patient is unable to participate because of severe cognitive disorder', 'Patient is unable to participate because of severe speech disorder', 'PCP removed consultation order', 'Other', 'Not Applicable']
+  no_see_doc_reasons = ['Patient was not in the facility', 'Patient could not participate in the interview', 'Patient refused to participate in the interview', 'I met the target points for the day', 'Other']
+  followup_type = ['Per routine protocol', 'Urgent', 'Very Urgent', 'Date Specific']
+  scaleeligible_reasons = ['Patient was not in the Facility', 'Patient could not particpate in the interview', 'Patient refused to particpate in the interview', 'I met the target points for the day', 'Patient not available', 'Other']
+  sptime = ['Upto 30 min', 'Upto 45 min', 'Upto 1 Hr', 'More then 1 Hr']
   // firstat : false;
   // reset_limited() {
   //   this.combined
   // }
+  
   resetForm(form?: NgForm) {
     if (form != null) {
       form.resetForm()
     }
-    
+
     this.combined = {
       id: null,
       visit: null,
@@ -251,9 +261,9 @@ export class CombinepatComponent implements OnInit {
       ccm: 'no',
       cch: 'no',
       cchconcent: '',
-      cchdate:null,
-      cchreason:'',
-      othercchreason:'',
+      cchdate: null,
+      cchreason: '',
+      othercchreason: '',
       bhiconcent: '',
       ccmconcent: '',
       medmanage2: 'no',
@@ -293,11 +303,12 @@ export class CombinepatComponent implements OnInit {
       conscrreason: '',
       conpsyname: '',
       currentmeds: '',
-      medfollowup:'Per routine protocol',
-      followupreason:'',
-      followupdays:null,
-      scaleeligiblereason:'',
-      otherscaleeligiblereason:''
+      medfollowup: 'Per routine protocol',
+      followupreason: '',
+      followupdays: null,
+      scaleeligiblereason: '',
+      otherscaleeligiblereason: '',
+      flag:null
     }
   }
   one(val: any) {
@@ -310,6 +321,7 @@ export class CombinepatComponent implements OnInit {
     var date = this.el.nativeElement.querySelectorAll('.meddate')
     let medData: any = [];
     let stream$ = from(x);
+    this.combined.flag=1;
     stream$.pipe(filter((val: any) => val.checked)).subscribe((res: any) => {
       let meddata: any = {}
       meddata.name = res.value;
@@ -388,5 +400,16 @@ export class CombinepatComponent implements OnInit {
   }
   ae() {
     this.service.toexpensive('yes');
+  }
+  fill(e) {
+    if(e=="yes"&&this.combined.flag==0) {
+      setTimeout(()=>{
+        this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(res=>{
+          if(this.default_scales.includes(res.value)) {
+            res.checked=1;
+          }
+        })
+      },1000)
+    }
   }
 }

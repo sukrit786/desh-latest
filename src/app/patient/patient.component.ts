@@ -175,7 +175,8 @@ export class PatientComponent implements OnInit {
       followupreason:'',
       followupdays:null,
       scaleeligiblereason:'',
-      otherscaleeligiblereason:''
+      otherscaleeligiblereason:'',
+      flag:0
     }
   }
 

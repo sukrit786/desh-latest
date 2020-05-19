@@ -128,6 +128,7 @@
         <h4 class="ap">Add Patient</h4>
         <form (submit)="submit(form)" #form="ngForm">
           <hr>
+          <input type="hidden" name="flag" #flag="ngModel" [(ngModel)]="combined.flag">
           <div class="row">
             <div class="col-md-12">
               <div class="row">

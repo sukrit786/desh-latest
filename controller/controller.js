@@ -454,8 +454,8 @@ router.post('/goku', verifyToken, (req, res) => {
         medfollowup: req.body.medfollowup,
         followupreason: req.body.followupreason,
         followupdays: days,
-        scaleeligiblereason:req.body.scaleeligiblereason,
-        otherscaleeligiblereason:req.body.otherscaleeligiblereason
+        scaleeligiblereason: req.body.scaleeligiblereason,
+        otherscaleeligiblereason: req.body.otherscaleeligiblereason
     }
     MasterPatientModel.findById(req.body.id, (err, doc) => {
         if (!err) {
@@ -554,7 +554,9 @@ router.post('/preround', verifyToken, (req, res) => {
                 step2.forEach(pat => {
                     let x = pat.visits[pat.visits.length - 1]
                     if (x != undefined) {
-                        if (result.insurance.includes(x.pinsurance) || result.insurance.includes(x.sinsurance)) {
+                        let veryUrgent = false;
+                        if (x.medfollowup == "Very Urgent") veryUrgent = true;
+                        if (result.insurance.includes(x.pinsurance) || result.insurance.includes(x.sinsurance) || veryUrgent) {
                             console.log(pat.name)
                             if (req.body.facility === x.facility) {
                                 console.log(pat.name)
@@ -564,13 +566,28 @@ router.post('/preround', verifyToken, (req, res) => {
                                 let v_t = [];
                                 let p_s = [];
                                 let s_d = [];
-                                psydate.setDate(psydate.getDate() + parseInt(x.followup));
+                                let urgent = false;
+                                if (x.medfollowup == 'urgent') {
+                                    urgent = true;
+                                }
+                                let psyco = false;
+                                if (x.followup) {
+                                    psydate.setDate(psydate.getDate() + parseInt(x.followup));
+                                    psyco = true;
+                                }
+                                let medmanage = false;
                                 if (x.nostable == 'no') {
+                                    medmanage = true;
                                     console.log(visitdate.getDate());
-                                    visitdate.setDate(visitdate.getDate() + parseInt(x.followupdays));
+                                    if (x.followupdays != null || x.followupdays != undefined) {
+                                        visitdate = new Date(x.followupdays.valueOf());
+                                    }
+                                    else
+                                        visitdate.setDate(visitdate.getDate() + 7);
                                 }
                                 else {
                                     visitdate.setDate(visitdate.getDate() + 30);
+                                    medmanage = true;
                                 }
                                 let s_e = [];
                                 if (x.medmanage == 'yes') {
@@ -593,33 +610,45 @@ router.post('/preround', verifyToken, (req, res) => {
                                 }
                                 let scale_names = ['PHQ9', 'GDS', 'BIMS', 'GAD7', 'AIMS', 'MOCA'];
                                 let scale_dataa = false;
-                                x.scaleinfo.forEach(scale => {
-                                    // console.log(scale)
-                                    if (scale.scale_score == '') {
-                                        p_s.push(scale.scale_name)
-                                    }
-                                    else if (scale_names.includes(scale.scale_name)) {
-                                        let scale_visit_date = new Date(scale.scale_date);
-                                        console.log(scale_visit_date.toString())
-                                        var newDate = new Date(scale_visit_date.setMonth(scale_visit_date.getMonth()+6));
-                                        console.log(scale_visit_date.toString())
-                                        if (+newDate <= +selecteddate) {
-                                            scale_dataa=true;
-                                            s_d.push(scale);
+                                if (result.role.includes('Scale Performer')) {
+                                    x.scaleinfo.forEach(scale => {
+                                        // console.log(scale)
+                                        if (scale.scale_score == '') {
+                                            p_s.push(scale.scale_name)
                                         }
-                                    }
-                                })
-                                if(scale_dataa) {
+                                        else if (scale_names.includes(scale.scale_name)) {
+                                            let scale_visit_date = new Date(scale.scale_date);
+                                            console.log(scale_visit_date.toString())
+                                            var newDate = new Date(scale_visit_date.setMonth(scale_visit_date.getMonth() + 6));
+                                            console.log(scale_visit_date.toString())
+                                            if (+newDate <= +selecteddate) {
+                                                scale_dataa = true;
+                                                s_d.push(scale);
+                                            }
+                                        }
+                                    })
+                                }
+                                if (scale_dataa) {
                                     v_t.push("Scales")
                                 }
-                                // console.log(visitdate.toString(), selecteddate.toString(), psydate.toString())
-                                if (+visitdate <= +selecteddate || +psydate <= +selecteddate) {
-                                    if (+visitdate <= +selecteddate) {
+                                console.log(visitdate.toString(), selecteddate.toString(), psydate.toString())
+                                console.log(result.role.includes('Medication management'))
+                                let followup_reason = "-"
+                                if (x.followupreason != undefined) {
+                                    followup_reason = x.followupreason
+                                }
+                                if (+visitdate <= +selecteddate && result.role.includes('Medication management') && medmanage || urgent || veryUrgent) {
+                                    if (+visitdate <= +selecteddate && result.role.includes('Medication management')) {
                                         v_t.push("Med-Management")
                                     }
-                                    if (+psydate <= +selecteddate) {
-                                        v_t.push("Psycothreapy")
+
+                                    if (urgent) {
+                                        v_t.push("urgent");
                                     }
+                                    if (veryUrgent) {
+                                        v_t.push("very urgent");
+                                    }
+
                                     let data_partial = {
                                         id: pat._id,
                                         name: pat.name,
@@ -627,10 +656,42 @@ router.post('/preround', verifyToken, (req, res) => {
                                         room: x.room,
                                         insurance: x.pinsurance + " " + x.sinsurance,
                                         services_eligible: s_e,
-                                        visit_date: x.visit,
                                         visit_type: v_t,
+                                        followup_type: x.medfollowup,
+                                        followup_reason: followup_reason
+                                    }
+                                    console.log(data_partial);
+                                    preroundupdata.push(data_partial);
+                                }
+                                if (+psydate <= +selecteddate && result.role.includes('Psychotherapist') && psyco) {
+                                    v_t.push("Psycothreapy");
+                                    let data_partial = {
+                                        id: pat._id,
+                                        name: pat.name,
+                                        dob: pat.dob,
+                                        room: x.room,
+                                        insurance: x.pinsurance + " " + x.sinsurance,
+                                        services_eligible: s_e,
+                                        visit_type: v_t,
+                                        followup_type: x.medfollowup,
+                                        followup_reason: followup_reason
+                                    }
+                                    console.log(data_partial);
+                                    preroundupdata.push(data_partial);
+                                }
+                                if (result.role.includes('Scale Performer') && (p_s.length > 0 || s_d.length > 0)) {
+                                    let data_partial = {
+                                        id: pat._id,
+                                        name: pat.name,
+                                        dob: pat.dob,
+                                        room: x.room,
+                                        insurance: x.pinsurance + " " + x.sinsurance,
+                                        services_eligible: s_e,
                                         pending_scales: p_s,
-                                        scale_overdue: s_d
+                                        scales_due: s_d,
+                                        visit_type: v_t,
+                                        followup_type: x.medfollowup,
+                                        followup_reason: followup_reason
                                     }
                                     console.log(data_partial);
                                     preroundupdata.push(data_partial);

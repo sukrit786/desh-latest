@@ -1321,7 +1321,7 @@
                                         <div class="custom-control custom-radio">
                                             <input id="iefs1" type="radio" class="custom-control-input" value="yes"
                                                 name="scaleeligible" #scaleeligible="ngModel"
-                                                [(ngModel)]="combined.scaleeligible">
+                                                [(ngModel)]="combined.scaleeligible" (ngModelChange)='fill($event)'>
                                             <label class="custom-control-label" for="iefs1">Yes</label>
                                         </div>
                                     </div>
@@ -1329,7 +1329,7 @@
                                         <div class="custom-control custom-radio">
                                             <input id="iefs2" type="radio" class="custom-control-input" value="no"
                                                 name="scaleeligible" #scaleeligible="ngModel"
-                                                [(ngModel)]="combined.scaleeligible">
+                                                [(ngModel)]="combined.scaleeligible" (ngModelChange)='fill($event)'>
                                             <label class="custom-control-label" for="iefs2">No</label>
                                         </div>
                                     </div>
@@ -1361,38 +1361,7 @@
                         <div class="row ml-4">
                             <label class="col-md-4 qw" for="wsd">List of Scales : </label>
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-md-9" *ngFor="let i of scales;let im=index">
-                                <div class="row">
-                                    <div class="col-md-3 ml-4" *ngIf="i=='Depression' || i=='Cognitive impairment' || i=='Trauma'
-                                    || i=='Anxiety' || i=='PTSD' || i=='Bipolar diagnostic' || i=='Dementia with behaviors' ||
-                                    i=='Dementia testing' || i=='Insomnia' || i=='Suicidal assessment' || i=='Schizophrenia'
-                                    || i=='Substance use' || i=='Misc'">
-                                        <h5>{{i}}</h5>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div *ngIf="i!='Depression' || i!='Cognitive impairment' || i!='Trauma'
-                                    || i!='Anxiety' || i!='PTSD' || i!='Bipolar diagnostic' || i!='Dementia with behaviors' ||
-                                    i!='Dementia testing' || i!='Insomnia' || i!='Suicidal assessment' || i!='Schizophrenia'
-                                    || i!='Substance use' || i!='Misc'">
-                                    <div class="col-md-3">
-                                        <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
-                                            id="{{im+100}}">
-                                        <label for="scale" class="form-check-label" id="{{im+100}}">{{i}}</label>
-                                    </div>
-                                    <div class="col-md-4 form-group">
-                                        <input type="date" name="scale_date" id="{{im+100}}"
-                                            class="form-control scale_date aq">
-                                    </div>
-                                    <div class="col-md-3 form-group">
-                                        <input type="number" min="0" max="50" placeholder="Enter score"
-                                            name="scale_score" id="{{im+100}}" class="form-control scale_score aq">
-                                    </div>
-                                </div>
-                                </div>
-                                </div>
-                            </div> -->
+                        
                     <div class="form-group" *ngIf="combined.scaleeligible=='yes'">
                         <div class="row ml-4">
                             <div class="col-md-10 ml-4" *ngFor="let i of scales;let im=index">

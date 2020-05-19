@@ -114,6 +114,7 @@ mongoose.model('MVM', visitSchema);
 let masterptSchema = new mongoose.Schema({
     name: String,
     dob: Date,
+    flag:Number,
     visits: [visitSchema]
 });
 mongoose.model('MasterPatient', masterptSchema);
