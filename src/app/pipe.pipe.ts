@@ -7,7 +7,7 @@ export class PipePipe implements PipeTransform {
 
   transform(value: any, searchText: any, searchDate?: Date): any {
     if (!searchText && !searchDate) {
-      return null;
+      return value;
     }
     if (!searchText && searchDate) {
       return value.filter((data) => this.matchValue(data, searchDate));

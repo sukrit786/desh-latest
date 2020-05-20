@@ -18,7 +18,8 @@ export class CombinepatComponent implements OnInit {
   modalRef: BsModalRef;
   constructor(public service: DataTransferService, private modalService: BsModalService, public el: ElementRef,
     public toastr: ToastrService, public router: Router) { }
-
+  scale_score=[];
+  scale_name=[];
   combined: combined;
   providers: any;
   facilities: any;
@@ -45,7 +46,7 @@ export class CombinepatComponent implements OnInit {
   stringdate: string;
   cd: Date;
   kd;
-  default_scales = ['PHQ9','GDS',"BIMS","MMSE","BTQ",'LEC-5','GAD',"BAI"];
+  default_scales = ['PHQ9', 'GDS', "BIMS", "MMSE", "BTQ", 'LEC-5', 'GAD', "BAI"];
   ngOnInit() {
     this.kdate = new Date();
     this.cd = new Date();
@@ -119,9 +120,9 @@ export class CombinepatComponent implements OnInit {
         setTimeout(() => {
           console.log("-----------------------------------------------------------------")
           this.el.nativeElement.querySelector('#cid').value = this.stringdate;
-          this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(scale=>{
+          this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(scale => {
             // if(this.default_scales.includes(scale)) {
-              console.log(scale);
+            console.log(scale);
             // }
           })
         }, 500);
@@ -180,7 +181,7 @@ export class CombinepatComponent implements OnInit {
   }
   unstable_syms = ['depression', 'anxiety', 'mania', 'psychosis', 'dementia progression and related behaviors', 'delirium and related behaviors', 'pseudobulbar affect']
   type_visits = ['Med-management follow up', 'Psycothreapy', 'Case Management/Psychiatric screenings', 'Care coordination time spent']
-  scales = ['Depression', 'PHQ9', 'GDS', 'BDI', 'Cognitive impairment', 'BIMS', 'MMSE', 'Trauma', 'BTQ', 'LEC-5', 'Anxiety', 'GAD', 'BAI', 'PTSD ', 'PCL', 'NSESSS', 'Bipolar diagnostic', 'BSDS', 'MDQ', 'Dementia with behaviors', 'BEHAVE-AD', 'RMBC', 'Dementia testing', 'MOCA', 'NPQ', 'Insomnia', 'ISQ', 'ISI', 'Suicidal assessment', 'CSSRS', 'BSS', 'Schizophrenia', 'PNASS', 'BPRS', 'Substance use', 'AUDIT', 'DAST', 'Faggerstorm', 'Misc', 'CNSLS', 'AIMS'];
+  scales = ['Depression', 'PHQ9', 'GDS', 'BDI', 'Cognitive impairment', 'BIMS', 'MMSE', 'Trauma', 'BTQ', 'LEC-5', 'Anxiety', 'GAD', 'BAI', 'PTSD ', 'PCL', 'NSESS', 'Bipolar diagnostic', 'BSDS', 'MDQ', 'Dementia with behaviors', 'BEHAVE-AD', 'RMBC', 'Dementia testing', 'MOCA', 'NPQ', 'Insomnia', 'ISQ', 'ISI', 'Suicidal assessment', 'CSSRS', 'BSS', 'Schizophrenia', 'PNASS', 'BPRS', 'Substance use', 'AUDIT', 'DAST', 'FAGERSTORM', 'Misc', 'CNSLS', 'AIMS'];
   med_reasons = ['Patient did not tolerate side effects', 'Patient did not benefit from it', 'Patient cannot afford it', 'Medicine interacts with other medicines', 'Other', 'Not Applicable'];
   genatic_reasons = ['Insurance does not cover it', 'Patient cannot afford copay', 'Patient/POA denied consent', 'Other', 'Not Applicable'];
   med_reasons2 = ['Patient does not need it clinically', 'Patient/POA refused', 'PCP removed the consultation order', 'Other', 'Not Applicable']
@@ -194,7 +195,7 @@ export class CombinepatComponent implements OnInit {
   // reset_limited() {
   //   this.combined
   // }
-  
+
   resetForm(form?: NgForm) {
     if (form != null) {
       form.resetForm()
@@ -306,9 +307,9 @@ export class CombinepatComponent implements OnInit {
       medfollowup: 'Per routine protocol',
       followupreason: '',
       followupdays: null,
-      scaleeligiblereason: '',
+      scaleeligiblereason: 'Not Applicable',
       otherscaleeligiblereason: '',
-      flag:null
+      flag: null
     }
   }
   one(val: any) {
@@ -321,7 +322,7 @@ export class CombinepatComponent implements OnInit {
     var date = this.el.nativeElement.querySelectorAll('.meddate')
     let medData: any = [];
     let stream$ = from(x);
-    this.combined.flag=1;
+    this.combined.flag = 1;
     stream$.pipe(filter((val: any) => val.checked)).subscribe((res: any) => {
       let meddata: any = {}
       meddata.name = res.value;
@@ -402,14 +403,14 @@ export class CombinepatComponent implements OnInit {
     this.service.toexpensive('yes');
   }
   fill(e) {
-    if(e=="yes"&&this.combined.flag==0) {
-      setTimeout(()=>{
-        this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(res=>{
-          if(this.default_scales.includes(res.value)) {
-            res.checked=1;
+    if (e == "yes" && this.combined.flag == 0) {
+      setTimeout(() => {
+        this.el.nativeElement.querySelectorAll('.scaleschkbx').forEach(res => {
+          if (this.default_scales.includes(res.value)) {
+            res.checked = 1;
           }
         })
-      },1000)
+      }, 1000)
     }
   }
 }

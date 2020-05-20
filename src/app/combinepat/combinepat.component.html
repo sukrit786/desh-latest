@@ -144,13 +144,14 @@
                                     [(ngModel)]="combined.medreason">
                                     <!--  change1 -->
                                     <option hidden value="" disabled selected> Not Applicable </option>
-                                    <option *ngFor="let spike of med_reasons" [value]="spike" >{{spike}}</option>
+                                    <option *ngFor="let spike of med_reasons" [value]="spike">{{spike}}</option>
                                 </select>
                                 <!-- <p *ngIf="medreason.touched && medreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.medreason=='Other'">
-                                <input type="text" class="form-control aq" name="othermedreason" #othermedreason="ngModel"
-                                    [(ngModel)]="combined.othermedreason" placeholder="Specify Reason" required>
+                                <input type="text" class="form-control aq" name="othermedreason"
+                                    #othermedreason="ngModel" [(ngModel)]="combined.othermedreason"
+                                    placeholder="Specify Reason" required>
                                 <p *ngIf="othermedreason.touched && othermedreason.invalid">Field is required</p>
                             </div>
                         </div>
@@ -251,7 +252,7 @@
                             <select class="form-control aq" id="exii" name="geneticreason" #geneticreason="ngModel"
                                 [(ngModel)]="combined.geneticreason">
                                 <!-- change2 -->
-                                <option hidden value=""  selected> Not Applicable</option>
+                                <option hidden value="" selected> Not Applicable</option>
                                 <option *ngFor="let spike of genatic_reasons" [value]="spike">{{spike}}</option>
                             </select>
                             <!-- <p *ngIf="geneticreason.touched && geneticreason.invalid">Field is required</p> -->
@@ -409,7 +410,7 @@
                             <select class="form-control aq" id="exii" name="medreason2" #medreason2="ngModel"
                                 [(ngModel)]="combined.medreason2">
                                 <!-- change3 -->
-                                <option hidden value=""  selected> Not Applicable </option>
+                                <option hidden value="" selected> Not Applicable </option>
                                 <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                             </select>
                             <!-- <p *ngIf="medreason2.touched && medreason2.invalid">Reason is required</p> -->
@@ -451,9 +452,9 @@
                         <div class="col-md-7">
                             <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="psyreason" #psyreason="ngModel"
-                                [(ngModel)]="combined.psyreason" >
+                                [(ngModel)]="combined.psyreason">
                                 <!-- change4 -->
-                                <option hidden value=""  selected>  Not Applicable </option>
+                                <option hidden value="" selected> Not Applicable </option>
                                 <option *ngFor="let spike of psy_reasons" [value]="spike">{{spike}}</option>
                             </select>
                             <!-- <p *ngIf="psyreason.touched && psyreason.invalid">Reason is required</p> -->
@@ -493,9 +494,9 @@
                         <div class="col-md-7">
                             <label>Discontinued due to</label>
                             <select class="form-control aq" id="exii" name="psyscreenreason" #psyscreenreason="ngModel"
-                                [(ngModel)]="combined.psyscreenreason" >
+                                [(ngModel)]="combined.psyscreenreason">
                                 <!-- change5 -->
-                                <option hidden value=""  selected>  Not Applicable </option>
+                                <option hidden value="" selected> Not Applicable </option>
                                 <option *ngFor="let spike of psy_reasons" [value]="spike">{{spike}}</option>
                             </select>
                             <!-- <p *ngIf="psyscreenreason.touched && psyscreenreason.invalid">Reason is required</p> -->
@@ -564,16 +565,17 @@
                             <div class="col-md-7">
                                 <label>Discontinued due to</label>
                                 <select class="form-control aq" id="exii" name="bhireason" #bhireason="ngModel"
-                                    [(ngModel)]="combined.bhireason" >
+                                    [(ngModel)]="combined.bhireason">
                                     <!-- change6 -->
-                                    <option hidden value=""  selected> Not Applicable </option>
+                                    <option hidden value="" selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
                                 <!-- <p *ngIf="bhireason.touched && bhireason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.bhireason=='Other'">
-                                <input type="text" class="form-control aq" name="otherbhireason" #otherbhireason="ngModel"
-                                    [(ngModel)]="combined.otherbhireason" placeholder="Specify Reason" required>
+                                <input type="text" class="form-control aq" name="otherbhireason"
+                                    #otherbhireason="ngModel" [(ngModel)]="combined.otherbhireason"
+                                    placeholder="Specify Reason" required>
                                 <p *ngIf="otherbhireason.touched && otherbhireason.invalid">Field is required</p>
                             </div>
                         </div>
@@ -634,16 +636,17 @@
                             <div class="col-md-7">
                                 <label>Discontinued due to </label>
                                 <select class="form-control aq" id="exii" name="ccmreason" #ccmreason="ngModel"
-                                    [(ngModel)]="combined.ccmreason" >
+                                    [(ngModel)]="combined.ccmreason">
                                     <!-- change7 -->
-                                    <option hidden value=""  selected>  Not Applicable </option>
+                                    <option hidden value="" selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
                                 <!-- <p *ngIf="ccmreason.touched && ccmreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.ccmreason=='Other'">
-                                <input type="text" class="form-control aq" name="otherccmreason" #otherccmreason="ngModel"
-                                    [(ngModel)]="combined.otherccmreason" placeholder="Specify Reason" required>
+                                <input type="text" class="form-control aq" name="otherccmreason"
+                                    #otherccmreason="ngModel" [(ngModel)]="combined.otherccmreason"
+                                    placeholder="Specify Reason" required>
                                 <p *ngIf="otherccmreason.touched && otherccmreason.invalid">Field is required</p>
                             </div>
                         </div>
@@ -714,16 +717,17 @@
                             <div class="col-md-7">
                                 <label>Discontinued due to</label>
                                 <select class="form-control aq" id="exii" name="cchreason" #cchreason="ngModel"
-                                    [(ngModel)]="combined.cchreason" >
+                                    [(ngModel)]="combined.cchreason">
                                     <!-- change8 -->
-                                    <option hidden value=""  selected>  Not Applicable </option>
+                                    <option hidden value="" selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons3" [value]="spike">{{spike}}</option>
                                 </select>
                                 <!-- <p *ngIf="cchreason.touched && cchreason.invalid">Reason is required</p> -->
                             </div>
                             <div class="col-md-4 form-group" *ngIf="combined.cchreason=='Other'">
-                                <input type="text" class="form-control aq" name="othercchreason" #othercchreason="ngModel"
-                                    [(ngModel)]="combined.othercchreason" placeholder="Specify Reason" required>
+                                <input type="text" class="form-control aq" name="othercchreason"
+                                    #othercchreason="ngModel" [(ngModel)]="combined.othercchreason"
+                                    placeholder="Specify Reason" required>
                                 <p *ngIf="othercchreason.touched && othercchreason.invalid">Field is required</p>
                             </div>
                         </div>
@@ -790,9 +794,9 @@
                             <div class="col-md-7">
                                 <label>Discontinued due to</label>
                                 <select class="form-control aq" id="homeclinicreason" name="homeclinicreason"
-                                    #homeclinicreason="ngModel" [(ngModel)]="combined.homeclinicreason" >
+                                    #homeclinicreason="ngModel" [(ngModel)]="combined.homeclinicreason">
                                     <!-- change9 -->
-                                    <option hidden value=""  selected> Not Applicable </option>
+                                    <option hidden value="" selected> Not Applicable </option>
                                     <option *ngFor="let spike of med_reasons2" [value]="spike">{{spike}}</option>
                                 </select>
                                 <!-- <p *ngIf="homeclinicreason.touched && homeclinicreason.invalid">Reason is required</p> -->
@@ -850,7 +854,7 @@
                     </div>
 
 
-                    
+
 
                     <h3 style="color: #87c442;" class="mt-4"> <b> Post Rounding updates </b></h3>
                     <div class="row mt-3">
@@ -882,31 +886,35 @@
                             <div *ngIf="type=='Care coordination time spent'; else kk">
                                 <div *ngIf="combined.typevisit=='Care coordination time spent'; else disab">
                                     <input class="form-check-input custom-control-input" type="radio" id="{{type}}"
-                                    name="typevisit" value="{{type}}" #typevisit="ngModel" [(ngModel)]="combined.typevisit"
-                                    required>
-                                <label class="form-check-label custom-control-label" for="{{type}}">{{type}} <input type="text" size="3"
-                                     #typevisitreason="ngModel" id="carecordination"
-                                    name="typevisitreason" [(ngModel)]="combined.typevisitreason" required> Minutes
-                                <p *ngIf="typevisitreason.touched && typevisitreason.invalid">Field is required</p></label>    
+                                        name="typevisit" value="{{type}}" #typevisit="ngModel"
+                                        [(ngModel)]="combined.typevisit" required>
+                                    <label class="form-check-label custom-control-label" for="{{type}}">{{type}} <input
+                                            type="text" size="3" #typevisitreason="ngModel" id="carecordination"
+                                            name="typevisitreason" [(ngModel)]="combined.typevisitreason" required>
+                                        Minutes
+                                        <p *ngIf="typevisitreason.touched && typevisitreason.invalid">Field is required
+                                        </p></label>
                                 </div>
                                 <ng-template #disab>
                                     <input class="form-check-input custom-control-input" type="radio" id="{{type}}"
-                                    name="typevisit" value="{{type}}" #typevisit="ngModel" [(ngModel)]="combined.typevisit"
-                                    required>
-                                <label class="form-check-label custom-control-label" for="{{type}}">{{type}} <input type="text" size="3"
-                                     #typevisitreason="ngModel" id="carecordination"
-                                    name="typevisitreason" [(ngModel)]="combined.typevisitreason" disabled required> Minutes
-                                <p *ngIf="typevisitreason.touched && typevisitreason.invalid">Field is required</p></label>    
-                                
+                                        name="typevisit" value="{{type}}" #typevisit="ngModel"
+                                        [(ngModel)]="combined.typevisit" required>
+                                    <label class="form-check-label custom-control-label" for="{{type}}">{{type}} <input
+                                            type="text" size="3" #typevisitreason="ngModel" id="carecordination"
+                                            name="typevisitreason" [(ngModel)]="combined.typevisitreason" disabled
+                                            required> Minutes
+                                        <p *ngIf="typevisitreason.touched && typevisitreason.invalid">Field is required
+                                        </p></label>
+
                                 </ng-template>
                             </div>
                             <ng-template #kk>
-                            <input class="form-check-input custom-control-input" type="radio" id="{{type}}"
-                                name="typevisit" value="{{type}}" #typevisit="ngModel" [(ngModel)]="combined.typevisit"
-                                required>
-                            <!-- {{typevisit.value}} -->
-                            <label class="form-check-label custom-control-label" for="{{type}}">{{type}}</label>
-                        </ng-template>
+                                <input class="form-check-input custom-control-input" type="radio" id="{{type}}"
+                                    name="typevisit" value="{{type}}" #typevisit="ngModel"
+                                    [(ngModel)]="combined.typevisit" required>
+                                <!-- {{typevisit.value}} -->
+                                <label class="form-check-label custom-control-label" for="{{type}}">{{type}}</label>
+                            </ng-template>
                         </div>
 
                     </div>
@@ -1163,7 +1171,7 @@
                                 Labs</label>
                             <div class="col-md-6">
                                 <div class="row">
-    
+
                                     <div class="col-md-6" style="text-align: right;">
                                         <div class="custom-control custom-radio">
                                             <input id="lab1" type="radio" class="custom-control-input" value="yes"
@@ -1171,7 +1179,7 @@
                                             <label class="custom-control-label" for="lab1">Yes</label>
                                         </div>
                                     </div>
-    
+
                                     <div class="col-md-6" style="text-align: left;">
                                         <div class="custom-control custom-radio">
                                             <input id="lab2" type="radio" class="custom-control-input" value="no"
@@ -1292,20 +1300,19 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group col-md-4 mt-2 mb-2"
                                 *ngIf="combined.seepsy=='stablepsy'||combined.seepsy=='unstable'">
                                 <!-- change -->
                                 <!-- <input type="number" class="form-control" name="thtime" id="thtime" #thtime="ngModel"
                                     [(ngModel)]="combined.thtime" placeholder="Time spend in threapy" required> -->
-                                    Time Spend on psychotherapy 
-                                    <select class="form-control aq" id="thtime" name="thtime"
-                                            #thtime="ngModel" [(ngModel)]="combined.thtime"
-                                            required>
-                                            <option hidden value="" disabled selected>Select Time </option>
-                                            <option *ngFor="let spike of sptime" [value]="spike">{{spike}}
-                                            </option>
-                                        </select>
+                                Time Spend on psychotherapy
+                                <select class="form-control aq" id="thtime" name="thtime" #thtime="ngModel"
+                                    [(ngModel)]="combined.thtime" required>
+                                    <option hidden value="" disabled selected>Select Time </option>
+                                    <option *ngFor="let spike of sptime" [value]="spike">{{spike}}
+                                    </option>
+                                </select>
                                 <p *ngIf="thtime.touched && thtime.invalid">Field is required</p>
                             </div>
                             <p *ngIf="seepsy.touched && seepsy.invalid">Field is required</p>
@@ -1342,10 +1349,11 @@
                         <div class="form-group row ml-4">
                             <div class="col-md-7">
                                 <label>Attempted to see the patient but could not see because</label>
-                                <select class="form-control aq" id="exii" name="scaleeligiblereason" #scaleeligiblereason="ngModel"
-                                    [(ngModel)]="combined.scaleeligiblereason" required>
-                                    <option hidden value="" disabled selected>  </option>
-                                    <option *ngFor="let spike of scaleeligible_reasons" [value]="spike">{{spike}}</option>
+                                <select class="form-control aq" id="exii" name="scaleeligiblereason"
+                                    #scaleeligiblereason="ngModel" [(ngModel)]="combined.scaleeligiblereason" required>
+                                    <option value="Not Applicable" selected> Not Applicable </option>
+                                    <option *ngFor="let spike of scaleeligible_reasons" [value]="spike">{{spike}}
+                                    </option>
                                 </select>
                                 <!-- <p *ngIf="scaleeligiblereason.touched && scaleeligiblereason.invalid">Reason is required</p> -->
                             </div>
@@ -1353,52 +1361,503 @@
                                 <input type="text" class="form-control aq" name="otherscaleeligiblereason"
                                     #otherscaleeligiblereason="ngModel" [(ngModel)]="combined.otherscaleeligiblereason"
                                     placeholder="Specify Reason" required>
-                                <p *ngIf="otherscaleeligiblereason.touched && otherscaleeligiblereason.invalid">Field is required
+                                <p *ngIf="otherscaleeligiblereason.touched && otherscaleeligiblereason.invalid">Field is
+                                    required
                                 </p>
                             </div>
                         </div>
-                            
+
                         <div class="row ml-4">
                             <label class="col-md-4 qw" for="wsd">List of Scales : </label>
                         </div>
-                        
-                    <div class="form-group" *ngIf="combined.scaleeligible=='yes'">
-                        <div class="row ml-4">
-                            <div class="col-md-10 ml-4" *ngFor="let i of scales;let im=index">
-                                <div class="row" *ngIf="i=='Depression' || i=='Cognitive impairment' || i=='Trauma'
+
+                        <div class="form-group" *ngIf="combined.scaleeligible=='yes'">
+                            <div class="row ml-4">
+                                <div class="col-md-10 ml-4" *ngFor="let i of scales;let im=index">
+                                    <div class="row" *ngIf="i=='Depression' || i=='Cognitive impairment' || i=='Trauma'
                                 || i=='Anxiety' || i=='PTSD' || i=='Bipolar diagnostic' || i=='Dementia with behaviors' ||
                                 i=='Dementia testing' || i=='Insomnia' || i=='Suicidal assessment' || i=='Schizophrenia'
                                 || i=='Substance use' || i=='Misc'; else kk">
-                                    <h3>{{i}}</h3>
-                                    <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
-                                    id="{{im+100}}" hidden >
-                                    <label for="scale" class="form-check-label" id="{{im+100}}"></label>
-                                    <input type="date" name="scale_date" id="{{im+100}}"
-                                    class="form-control scale_date" value="0" hidden>
-                                    <input type="number" min="0" max="50" placeholder="Enter scale score"
-                                     name="scale_score" id="{{im+100}}" class="form-control scale_score" value="0" hidden>
-                                </div>
-                                <ng-template #kk>
-                                <div class="row">
-                                    <div class="col-md-3 ml-4">
+                                        <h3>{{i}}</h3>
                                         <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
-                                            id="{{im+100}}">
-                                        <label for="scale" class="form-check-label" id="{{im+100}}">{{i}}</label>
-                                    </div>
-                                    <div class="col-md-4 form-group">
+                                            id="{{im+100}}" hidden>
+                                        <label for="scale" class="form-check-label" id="{{im+100}}"></label>
                                         <input type="date" name="scale_date" id="{{im+100}}"
-                                            class="form-control scale_date">
+                                            class="form-control scale_date" value="0" hidden>
+                                        <input type="number" min="0" max="75" placeholder="Enter scale score"
+                                            name="scale_score" id="{{im+100}}" class="form-control scale_score"
+                                            value="0" hidden>
                                     </div>
-                                    <div class="col-md-3 form-group">
-                                        <input type="number" min="0" max="50" placeholder="Enter scale score"
-                                            name="scale_score" id="{{im+100}}" class="form-control scale_score">
-                                    </div>
+                                    <ng-template #kk>
+                                        <div class="row">
+                                            <div class="col-md-2 ml-4">
+                                                <input type="checkbox" class="form-check-input scaleschkbx" [value]="i"
+                                                    id="{{im+100}}">
+                                                <label for="scale" class="form-check-label"
+                                                    id="{{im+100}}">{{i}}</label>
+                                            </div>
+                                            <div class="col-md-3 form-group">
+                                                <input type="date" name="scale_date" id="{{im+100}}"
+                                                    class="form-control scale_date">
+                                            </div>
+                                            <div class="col-md-2 form-group">
+                                                <input type="number" min="0" max="250" placeholder="Enter scale score"
+                                                    name="scale_score" id="{{im+100}}" class="form-control scale_score"
+                                                    [(ngModel)]="scale_score[im]">
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='PHQ9'&&scale_score[im]<=4"
+                                                style="padding: 10px;">
+                                                minimal depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PHQ9'&&scale_score[im]>4&&scale_score[im]<=9"
+                                                style="padding: 10px;">
+                                                mild depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PHQ9'&&scale_score[im]>10&&scale_score[im]<=14"
+                                                style="padding: 10px;">
+                                                moderate depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PHQ9'&&scale_score[im]>14&&scale_score[im]<=19"
+                                                style="padding: 10px;">
+                                                moderately severe depression
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='PHQ9'&&scale_score[im]>19"
+                                                style="padding: 10px;">
+                                                severe depression
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='GDS'&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                No depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='GDS'&&scale_score[im]>5&&scale_score[im]<=9"
+                                                style="padding: 10px;">
+                                                Suggestive of depression
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='GDS'&&scale_score[im]>9"
+                                                style="padding: 10px;">
+                                                Indicative of depression.
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BDI'&&scale_score[im]<=10"
+                                                style="padding: 10px;">
+                                                Normal
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BDI'&&scale_score[im]>10&&scale_score[im]<=16"
+                                                style="padding: 10px;">
+                                                Mild mood disturbance
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BDI'&&scale_score[im]>16&&scale_score[im]<=20"
+                                                style="padding: 10px;">
+                                                Borderline clinical depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BDI'&&scale_score[im]>20&&scale_score[im]<=30"
+                                                style="padding: 10px;">
+                                                Moderate depression
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BDI'&&scale_score[im]>30&&scale_score[im]<=40"
+                                                style="padding: 10px;">
+                                                Severe depression
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BDI'&&scale_score[im]>40"
+                                                style="padding: 10px;">
+                                                Extreme depression
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BIMS'&&scale_score[im]<=7"
+                                                style="padding: 10px;">
+                                                Severe impairment
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BIMS'&&scale_score[im]>7&&scale_score[im]<12"
+                                                style="padding: 10px;">
+                                                Moderately impaired
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BIMS'&&scale_score[im]>=12"
+                                                style="padding: 10px;">
+                                                Cognitively intact
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MMSE'&&scale_score[im]<=12"
+                                                style="padding: 10px;">
+                                                severe dementia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='MMSE'&&scale_score[im]>12&&scale_score[im]<20"
+                                                style="padding: 10px;">
+                                                moderate dementia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='MMSE'&&scale_score[im]>20&&scale_score[im]<24"
+                                                style="padding: 10px;">
+                                                mild dementia
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MMSE'&&scale_score[im]>25"
+                                                style="padding: 10px;">
+                                                no dementia
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BTQ'&&scale_score[im]<1"
+                                                style="padding: 10px;">
+                                                No trauma
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BTQ'&&scale_score[im]>=1"
+                                                style="padding: 10px;">
+                                                Presence trauma
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='LEC-5'&&scale_score[im]<1"
+                                                style="padding: 10px;">
+                                                No trauma
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='LEC-5'&&scale_score[im]>=1"
+                                                style="padding: 10px;">
+                                                Presence trauma
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='GAD'&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                Normal
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='GAD'&&scale_score[im]>5&&scale_score[im]<10"
+                                                style="padding: 10px;">
+                                                Mild anxiety
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='GAD'&&scale_score[im]>10&&scale_score[im]<15"
+                                                style="padding: 10px;">
+                                                Moderate anxiety
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='GAD'&&scale_score[im]>15"
+                                                style="padding: 10px;">
+                                                Severe anxiety
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BAI'&&scale_score[im]<21"
+                                                style="padding: 10px;">
+                                                low anxiety
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BAI'&&scale_score[im]>21&&scale_score[im]<35"
+                                                style="padding: 10px;">
+                                                Moderate anxiety
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BAI'&&scale_score[im]>35"
+                                                style="padding: 10px;">
+                                                Severe anxiety
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='PCL'&&scale_score[im]<=17"
+                                                style="padding: 10px;">
+                                                PTSD unlikely
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='PCL'&&scale_score[im]>18"
+                                                style="padding: 10px;">
+                                                PTSD likely
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='NSESS'&&scale_score[im]<=9"
+                                                style="padding: 10px;">
+                                                Mild
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='NSESS'&&scale_score[im]>9&&scale_score[im]<=18"
+                                                style="padding: 10px;">
+                                                Moderate
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='NSESS'&&scale_score[im]>18&&scale_score[im]<=27"
+                                                style="padding: 10px;">
+                                                Moderate severe
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='NSESS'&&scale_score[im]>27"
+                                                style="padding: 10px;">
+                                                very severe
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BSDS'&&scale_score[im]<=6"
+                                                style="padding: 10px;">
+                                                Highly unlikely probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BSDS'&&scale_score[im]>7&&scale_score[im]<=12"
+                                                style="padding: 10px;">
+                                                Low probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BSDS'&&scale_score[im]>13&&scale_score[im]<=19"
+                                                style="padding: 10px;">
+                                                Moderate probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BSDS'&&scale_score[im]>20"
+                                                style="padding: 10px;">
+                                                High probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MDQ'&&scale_score[im]<=1"
+                                                style="padding: 10px;">
+                                                Highly unlikely probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MDQ'&&scale_score[im]==2"
+                                                style="padding: 10px;">
+                                                Low probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MDQ'&&scale_score[im]==3"
+                                                style="padding: 10px;">
+                                                Moderate probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MDQ'&&scale_score[im]>4"
+                                                style="padding: 10px;">
+                                                High probability of Bipolar
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BEHAVE-AD'&&scale_score[im]<1"
+                                                style="padding: 10px;">
+                                                No symptoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BEHAVE-AD'&&scale_score[im]>=1&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                Mild symptoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BEHAVE-AD'&&scale_score[im]>5&&scale_score[im]<=25"
+                                                style="padding: 10px;">
+                                                Moderate symtoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BEHAVE-AD'&&scale_score[im]>25&&scale_score[im]<=50"
+                                                style="padding: 10px;">
+                                                Severe symptoms
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BEHAVE-AD'&&scale_score[im]>50"
+                                                style="padding: 10px;">
+                                                Very severe symptoms
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='RMBC'&&scale_score[im]<1"
+                                                style="padding: 10px;">
+                                                No symptoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='RMBC'&&scale_score[im]>=1&&scale_score[im]<=24"
+                                                style="padding: 10px;">
+                                                Mild symptoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='RMBC'&&scale_score[im]>25&&scale_score[im]<=48"
+                                                style="padding: 10px;">
+                                                Moderate symtoms
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='RMBC'&&scale_score[im]>49&&scale_score[im]<=72"
+                                                style="padding: 10px;">
+                                                Severe symptoms
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='RMBC'&&scale_score[im]>72"
+                                                style="padding: 10px;">
+                                                Very severe symptoms
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='MOCA'&&scale_score[im]<5"
+                                                style="padding: 10px;">
+                                                severe dementia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='MOCA'&&scale_score[im]>=6&&scale_score[im]<=10"
+                                                style="padding: 10px;">
+                                                moderate dementia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='MOCA'&&scale_score[im]>11&&scale_score[im]<=17"
+                                                style="padding: 10px;">
+                                                mild dementia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='MOCA'&&scale_score[im]>18&&scale_score[im]<=25"
+                                                style="padding: 10px;">
+                                                mild cognitive impairment
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='MOCA'&&scale_score[im]>26"
+                                                style="padding: 10px;">
+                                                No dementia
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='NPIQ'&&scale_score[im]<=12"
+                                                style="padding: 10px;">
+                                                mild
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='NPIQ'&&scale_score[im]>13&&scale_score[im]<=24"
+                                                style="padding: 10px;">
+                                                moderate
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='NPIQ'&&scale_score[im]>25"
+                                                style="padding: 10px;">
+                                                severe
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='ISI'&&scale_score[im]<=7"
+                                                style="padding: 10px;">
+                                                No clinically significant insomnia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='ISI'&&scale_score[im]>7&&scale_score[im]<=14"
+                                                style="padding: 10px;">
+                                                Subthreshold insomnia
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='ISI'&&scale_score[im]>15&&scale_score[im]<=21"
+                                                style="padding: 10px;">
+                                                Clinical insomnia (moderate severity)
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='ISI'&&scale_score[im]>22"
+                                                style="padding: 10px;">
+                                                Clinical insomnia (severe)
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='AIS'&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                Insomnia unlikely
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='AIS'&&scale_score[im]>6&&scale_score[im]<=16"
+                                                style="padding: 10px;">
+                                                Likely moderate insomnia
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='AIS'&&scale_score[im]>16"
+                                                style="padding: 10px;">
+                                                Likely severe insomnia
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='CSSRS'&&scale_score[im]==0"
+                                                style="padding: 10px;">
+                                                mild risk
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='CSSRS'&&scale_score[im]>=1&&scale_score[im]<=2"
+                                                style="padding: 10px;">
+                                                moderate risk
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='CSSRS'&&scale_score[im]>2"
+                                                style="padding: 10px;">
+                                                severe risk
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='PANSS'&&scale_score[im]<90"
+                                                style="padding: 10px;">
+                                                mild
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PANSS'&&scale_score[im]>=91&&scale_score[im]<=120"
+                                                style="padding: 10px;">
+                                                moderate
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PANSS'&&scale_score[im]>120&&scale_score[im]<=150"
+                                                style="padding: 10px;">
+                                                moderately severe
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='PANSS'&&scale_score[im]>150&&scale_score[im]<=180"
+                                                style="padding: 10px;">
+                                                severe
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='PANSS'&&scale_score[im]>180"
+                                                style="padding: 10px;">
+                                                extremely severe
+                                            </div>
+
+                                            <div class="col-md-3" *ngIf="scales[im]=='BPRS'&&scale_score[im]<=54"
+                                                style="padding: 10px;">
+                                                mild
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BPRS'&&scale_score[im]>54&&scale_score[im]<=72"
+                                                style="padding: 10px;">
+                                                moderate
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BPRS'&&scale_score[im]>72&&scale_score[im]<=90"
+                                                style="padding: 10px;">
+                                                moderately severe
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='BPRS'&&scale_score[im]>90&&scale_score[im]<=108"
+                                                style="padding: 10px;">
+                                                severe
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='BPRS'&&scale_score[im]>108"
+                                                style="padding: 10px;">
+                                                extremely severe
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='AUDIT'&&scale_score[im]>8&&scale_score[im]<=15"
+                                                style="padding: 10px;">
+                                                mild
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='AUDIT'&&scale_score[im]>15&&scale_score[im]<=19"
+                                                style="padding: 10px;">
+                                                moderate
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='AUDIT'&&scale_score[im]>19"
+                                                style="padding: 10px;">
+                                                severe
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='DAST'&&scale_score[im]<=1"
+                                                style="padding: 10px;">
+                                                healthy
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='DAST'&&scale_score[im]==2"
+                                                style="padding: 10px;">
+                                                risky
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='DAST'&&scale_score[im]>2&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                harmful
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='DAST'&&scale_score[im]>5"
+                                                style="padding: 10px;">
+                                                severe
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]<=2"
+                                                style="padding: 10px;">
+                                                Max dependence
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>2&&scale_score[im]<=5"
+                                                style="padding: 10px;">
+                                                Low to moderate dependence
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>5&&scale_score[im]<=7"
+                                                style="padding: 10px;">
+                                                Moderate dependence
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>7"
+                                                style="padding: 10px;">
+                                                Severe dependence
+                                            </div>
+                                            <div class="col-md-3"
+                                                *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>1&&scale_score[im]<=12"
+                                                style="padding: 10px;">
+                                                unlikely pseudobulbar affect
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>12&&scale_score[im]<=16"
+                                                style="padding: 10px;">
+                                                possibility of pseudobulbar affect
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='FAGERSTORM'&&scale_score[im]>16"
+                                                style="padding: 10px;">
+                                                likely pseudobulbar affect
+                                            </div>
+                                            <div class="col-md-3" *ngIf="scales[im]=='AIMS'&&scale_score[im]>2"
+                                                style="padding: 10px;">
+                                                evidence of tardive dyskinesia. 
+                                            </div>
+                                        </div>
+                                    </ng-template>
                                 </div>
-                            </ng-template>
                             </div>
                         </div>
                     </div>
-                        </div>
 
                     <h3 style="color: #87c442;"> <b> Consultation </b></h3>
                     <div class="form-row mt-4">
@@ -1525,14 +1984,14 @@
 
                     <h3 style="color: #87c442;"> <b> Urgency of follow ups </b></h3>
                     <div class="row">
-                    <div class="col-md-6 form-group">
-                        For psychotherapy
-                    </div>
-                    <div class="col-md-3">
-                        <input type="text" class="form-control aq" placeholder="No. of Days" name="followup"
-                            #followup="ngModel" [(ngModel)]="combined.followup">
-                        <!-- <p *ngIf="followup.touched && followup.invalid">Field is required</p> -->
-                    </div>
+                        <div class="col-md-6 form-group">
+                            For psychotherapy
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" class="form-control aq" placeholder="No. of Days" name="followup"
+                                #followup="ngModel" [(ngModel)]="combined.followup">
+                            <!-- <p *ngIf="followup.touched && followup.invalid">Field is required</p> -->
+                        </div>
                     </div>
                     <label>For Others : </label>
                     <div class="row ml-1 mt-4">
@@ -1546,32 +2005,32 @@
                     <div *ngIf="combined.medfollowup==followup_type[1]||combined.medfollowup==followup_type[2]">
                         <div class="row mt-4">
                             <div class="col-md-3">
-                        <input type="text" name="followupreason" class="aq" #followupreason="ngModel"
-                            [(ngModel)]="combined.followupreason"  placeholder="followup reason">
+                                <input type="text" name="followupreason" class="aq" #followupreason="ngModel"
+                                    [(ngModel)]="combined.followupreason" placeholder="followup reason">
                             </div>
                             <div class="col-md-3">
-                        <!-- <input type="number" name="followupdays" class="aq" #followupdays="ngModel"
+                                <!-- <input type="number" name="followupdays" class="aq" #followupdays="ngModel"
                             [(ngModel)]="combined.followupdays" placeholder="followup days">   -->
+                            </div>
                         </div>
                     </div>
-                        </div>
-                        <div *ngIf="combined.medfollowup==followup_type[3]">
-                            <div class="row mt-4">
-                                <div class="col-md-3">
-                                    <input type="date" name="followupdays" class="aq" #followupdays="ngModel"
-                                [(ngModel)]="combined.followupdays" placeholder="followup days">  
-                                </div>
-                                <div class="col-md-3">
-                            
+                    <div *ngIf="combined.medfollowup==followup_type[3]">
+                        <div class="row mt-4">
+                            <div class="col-md-3">
+                                <input type="date" name="followupdays" class="aq" #followupdays="ngModel"
+                                    [(ngModel)]="combined.followupdays" placeholder="followup days">
+                            </div>
+                            <div class="col-md-3">
+
                             </div>
                         </div>
-                            </div>
+                    </div>
                     <br>
-                    <div *ngIf="form.invalid"> 
+                    <div *ngIf="form.invalid">
                         <p>Fill all the fields With <span>*</span> </p>
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
-                    <button type="reset" class="btn btn-primary ml-2" >Reset</button>
+                    <button type="reset" class="btn btn-primary ml-2">Reset</button>
                 </form>
             </div>
             <div class="col-md-1"></div>
